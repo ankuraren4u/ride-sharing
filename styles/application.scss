@@ -1,0 +1,315 @@
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+a {
+	color:#2866b6;
+	text-decoration:none;
+	&:hover, &:active {
+    	opacity: 0.8;
+    }
+}
+
+input {
+	&[type=email], &[type=password], &[type=text] {
+		border:0;
+		border-bottom: 1px solid #000;
+		display:block;
+		width:100%;
+		outline:none;
+		padding-bottom: 5px;
+		color:#666;
+
+		&:focus, &:active {
+			border-bottom: 2px solid #2866b6;
+			padding-bottom:4px;
+		}
+		
+	}
+	&::placeholder {
+		font-style:italic;
+		color:#999;
+	}
+	&.input {
+		&--error {
+			border-bottom-color: #900;
+		}
+	}
+}
+
+
+label {
+	display:block;
+	font-weight:500;
+	line-height:1.4;
+
+	& + & {
+		margin-top:25px;
+	}
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+.grid {
+	margin-left:15px;
+}
+
+.grid-mid-2 {
+	width: calc(50% - 15px);
+    float: left;
+    margin: 0 15px 15px 0;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 20px 20px;
+    border-radius: 3px;
+    //margin-bottom:15px;
+    @media (max-width:450px) {
+		display:block;
+		width:calc(100% - 15px);
+	}
+}
+.btn {
+	position:relative;
+	background: #2866b6;
+    border: none;
+    border-radius: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    &:hover, &:active {
+    	opacity: 0.8;
+    }
+    &[disabled] {
+    	opacity: 0.8;
+    	cursor: default;
+    }
+}
+
+.label__text {
+	margin-bottom:10px;
+}
+
+.form-error {
+	color: #900;
+	text-align: center;
+	margin-top:20px;
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #333;
+  animation: spinner .6s linear infinite;
+}
+
+.form {
+	border-radius: 3px;
+	border: 1px solid #eee;
+	padding-bottom:20px;
+
+	&--signin {
+		&__wrapper {
+			max-height: 400px;
+	    	max-width: 400px;
+		}
+	}
+
+	&--pick-ride {
+		border: 0;
+		
+
+		.form__content {
+			padding: 0;
+			height: 300px; 
+
+			@media (max-width:450px) {
+				& {
+					height: auto;    	
+				}
+				
+			};
+		}
+		.grid {
+			margin-top:15px;
+			margin-left:15px;
+			z-index: 1;
+			position: relative;
+		}
+	}
+
+
+	&--signup {
+		&__wrapper {
+			/*max-height: 400px;*/
+	    	/*max-width: 400px;*/
+		}
+	}
+
+	&__wrapper {
+		position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    margin: auto;
+	    box-sizing: border-box;
+	    .signup-text {
+	    	margin-top:5px;
+	    	font-size:12px;
+	    	text-align: center;
+	    }
+
+	    @media (max-width:450px) {
+			& {
+				max-width:100%;
+				max-height:100%;
+				bottom:auto;
+				border:none;    	
+			}
+			
+		};
+	}
+
+    &__title {
+	    padding:20px;
+	    background-color: #2866b6;
+	    font-size:24px;
+	    color:#fff;
+    }
+
+    &__content {
+    	padding:20px;
+    	position:relative;
+    }
+
+    &__footer {
+    	text-align: center;
+    	padding:0 20px;
+    }
+
+
+}
+
+.google-map {
+	width: 100%;
+	height:300px;
+	position:relative;
+	top:-124px;
+	left:0;
+	right:0;
+	margin-bottom: -124px;
+
+	@media (max-width:450px) {
+		top:0;
+		margin-bottom:0;
+	}
+
+}
+
+.ride {
+	cursor: pointer;
+	display: flex;
+    align-items: center;
+    height: 126px;
+	&__img {
+		max-height:100%;
+		max-width: 100%;
+	 	&-wrapper {
+			width: 80px;
+		}
+	}
+
+	&__info {
+	    float: right;
+	    width: calc(100% - 80px);
+	    padding-left: 15px;
+	    box-sizing: border-box;
+	    line-height:1.4
+	}
+
+	&__name {
+		float:left;
+		font-size:16px;
+	}
+
+	&__rating {
+		color: #999;
+		float:right;
+		&-value {
+			color: #2866b6;
+		}
+	}
+	&__car {
+		float:left;
+	}
+	&__seat {
+		margin-left:10px;
+		float:left;
+	}
+
+	&--selected {
+		color: #fff;
+		background: #9ACDFB;
+		.text-muted {
+			color:#eee;
+		}
+	}
+
+	@media (max-width:450px) {
+		& {
+			font-size: 12px;
+			padding: 10px;
+			height: auto;
+		}
+		&__name, &__rating, &__rating, &__car, &__seat  {
+			float: none;
+			margin-left: 0;
+		}
+	
+	}
+	
+}
+
+.align-left {
+	text-align:left;
+} 
+.text-small {
+	font-size:12px;
+}
+.m-b-10px {
+	margin-bottom:10px;
+}
+.hidden {
+	visibility: hidden;
+}
+.text-muted {
+	color: #999;
+}
+.font-size-normal {
+	font-size: 12px;
+}
